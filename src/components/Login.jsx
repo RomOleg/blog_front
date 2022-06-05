@@ -11,6 +11,7 @@ const Login = ({ auth }) => {
           email,
           password
       });
+      localStorage.setItem('AccessToken', data.token);
       auth(data.token);
       document.cookie = `id=${data.dto.id}`
   }

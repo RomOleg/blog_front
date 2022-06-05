@@ -15,7 +15,7 @@ const Blog = ({ blog, auth }) => {
   }
   
   const deleteBlog = async () => {
-    await Axios.delete(`/blog/${blog.id}`, {headers: { 'Authorization': `Bearer ${auth}` }});
+    await Axios.delete(`/blog/${blog.id}`);
   }
 
   return (

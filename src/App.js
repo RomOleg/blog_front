@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Axios from "./axios/axios";
 import Blog from "./components/Blog";
-import { getCookie } from './helpers/cookie'
 import './App.css'
 import Login from "./components/Login";
 import Registration from "./components/Registration";
@@ -9,7 +8,7 @@ import Registration from "./components/Registration";
 function App() {
 
   const [blogs, setBlogs] = useState([]);
-  const [auth, setAuth] = useState(getCookie('accessToken'));
+  const [auth, setAuth] = useState(localStorage.getItem('AccessToken'));
   const [newBlog, setNewBlog] = useState('');
 
   useEffect(() => {
@@ -28,7 +27,7 @@ function App() {
   const addBlog = async () => {
     await Axios.post('/blog/create', {
         name: newBlog
-    }, {headers: { 'Authorization': `Bearer ${auth}` }});
+    });
     fetchBlogs()
   }
 
