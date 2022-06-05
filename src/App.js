@@ -22,6 +22,7 @@ function App() {
 
   const signOut = () => {
     setAuth('');
+    localStorage.setItem('AccessToken', '');
   }
 
   const addBlog = async () => {
